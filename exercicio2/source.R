@@ -1,10 +1,3 @@
-install.packages("caret")
-install.packages("e1071")
-install.packages("mlbench")
-install.packages("mice")
-library(mlbench)
-library(caret)
-library(mice)
 library("caret")
 
 set.seed(7)
@@ -33,10 +26,10 @@ predicoes.svm <- predict(svm, teste)
 cor.svm <- cor(teste$VOL, predicoes.svm)
 
 # Neural Network
-rna <- train(VOL~., data = treinamento, method = "nnet", trace = F, linout=T,
+nnet <- train(VOL~., data = treinamento, method = "nnet", trace = F, linout=T,
              tuneGrid=expand.grid(size = 10, decay = 0.1))
-predicoes.rna <- predict(rna, teste)
-cor.rna <- cor(teste$VOL, predicoes.rna)[1]
+predicoes.nnet <- predict(nnet, teste)
+cor.nnet <- cor(teste$VOL, predicoes.nnet)[1]
 
 # Alometric Spurr
 alom <- nls(VOL ~ b0 + b1*(DAP*DAP)*HT, treinamento, start = list(b0=0.5,b1=0.5))
@@ -48,13 +41,13 @@ cor.alom <- cor(teste$VOL, predicoes.alom)
 # -----------------------------------------------------------------------------
 
 # Accuracy of models
-correlacoes <- as.data.frame(list(rf=cor.rf, rna=cor.rna, svmRadial=cor.svm, alom=cor.alom))
+correlacoes <- as.data.frame(list(rf=cor.rf, nnet=cor.nnet, svmRadial=cor.svm, alom=cor.alom))
 melhor_metodo <- colnames(correlacoes)[which(correlacoes == max(correlacoes))]
 
 # Treinamento do melhor modelo
 if (melhor_metodo == "rf" || melhor_metodo == "svmRadial"){
   melhor_modelo <- train(VOL~., data=dataset, method=melhor_metodo)
-} else if(melhor_metodo == "rna"){
+} else if(melhor_metodo == "nnet"){
   melhor_modelo <- train(VOL~., data = dataset, method = "nnet", trace = F, linout=T, 
                          tuneGrid=expand.grid(size = 10, decay = 0.1))
 } else if (melhor_metodo == "alom"){
@@ -74,23 +67,33 @@ plot(teste$VOL, pch = 19, cex = 0.5, ylab="Predições", main = "Predições dos
 with(dataset, points(x = predicoes.rf, pch = 19, cex = 0.5, col="red"))
 with(dataset, points(x = predicoes.alom, pch = 19, cex = 0.5, col="green"))
 with(dataset, points(x = predicoes.svm, pch = 19, cex = 0.5, col = "blue"))
-with(dataset, points(x = predicoes.rna, pch = 19, cex = 0.5, col="purple"))
-xgrid_metodos = expand.grid(X1=volumes$NR,X2=seq(0, max(c(max(melhor_predicao),max(dataset$VOL))), 0.01))
-plot(xgrid_metodos, pch = 20, cex = 0.1, col = "grey", main = paste("Comparação entre amostra e predições para", melhor_metodo), ylab="Volume", xlab = "Distribuição de amostras")
+with(dataset, points(x = predicoes.nnet, pch = 19, cex = 0.5, col="purple"))
+dev.copy(png,'metodos.png')
+dev.off()
 
 # Gráfico de comparação das correlações do melhor método atual
 xgrid = expand.grid(X1=volumes$NR,X2=seq(0, max(c(max(melhor_predicao),max(dataset$VOL))), 0.01))
 plot(xgrid, pch = 20, cex = 0.1, col = "grey", main = paste("Comparação entre amostra e predições para", melhor_metodo), ylab="Volume", xlab = "Distribuição de amostras")
 points(dataset$VOL, pch = 19, cex=0.3)
 points(melhor_predicao, pch = 19, col = "red", cex=0.3)
+dev.copy(png,'metodo_com_melhor_correlacao.png')
+dev.off()
 
 
 # -----------------------------------------------------------------------------
 # OUTPUTS
 # -----------------------------------------------------------------------------
 
-print("Melhor método:")
-print(melhor_metodo)
+
+sink("output.txt")
+print("Comparação de correlações entre os métodos")
+print(" - Random Forest")
+print(" - Support Vector Machine Radial")
+print(" - Neural Network")
+print("Correlações dos métodos utilizados")
 print(correlacoes)
-print("Correlação com toda a amostra de dados")
+print("Método com melhor correlação:")
+print(melhor_metodo)
+print("Correlação do método escolhido com toda a amostra de dados")
 print(melhor_cor)
+sink()

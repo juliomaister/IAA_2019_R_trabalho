@@ -1,0 +1,12 @@
+[1] "Comparação de correlações entre os métodos"
+[1] " - Random Forest"
+[1] " - Support Vector Machine Radial"
+[1] " - Neural Network"
+[1] "Correlações dos métodos utilizados"
+         rf      nnet svmRadial      alom
+1 0.9267874 0.9408202 0.9253999 0.9244904
+[1] "Método com melhor correlação:"
+[1] "nnet"
+[1] "Correlação do método escolhido com toda a amostra de dados"
+          [,1]
+[1,] 0.9426489
