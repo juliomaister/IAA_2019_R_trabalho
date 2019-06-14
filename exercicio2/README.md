@@ -28,7 +28,7 @@ Logo em seguida guarda os gráficos gerados, para comparação entre os métodos
  * `output.txt`: saída dos dados para análise da veracidade
 
 ## Resultados obtidos
-Utilizando-se das saídas geradas pelo algoritmo, formatadas, a seguir.
+Utilizando-se das saídas de texto geradas pelo algoritmo, formatadas, a seguir.
 ```
 Comparação de correlações entre os métodos
  - Random Forest
@@ -45,7 +45,17 @@ nnet
 Correlação do método escolhido com toda a amostra de dados
 0.9426489
 ```
+E, também o gráfico a seguir:
 
-Neste caso, a melhor correlação foi obtida por pelo modelo treinado a partir do método de Rede Neural (Neural Network).
+![Comparação entre as predições realizadas pelos métodos e pela equação alométrica](./metodos.png)
 
-Deve-se observar que os modelos, assim como os resultados, podem variar conforme o `set.seed` utilizado. Outro fator observado foi que o resultado pode ser diferente entre máquinas, mesmo utilizando o mesmo valor para a função `set.seed`
+`Figura 1 - Comparação entre as predições realizadas pelos métodos e pela equação alométrica, em relação à amostragem; Cores: vermelho = rf, verde = alom, azul = svm, purpura = nnet `
+
+
+Neste caso, conclui-se que, a melhor correlação foi obtida por pelo modelo treinado a partir do método de Rede Neural (Neural Network), conforme, visualmente, mostra o gráfico a seguir.
+
+![Comparação entre as predições realizadas pelo modelo nnet e os dados de amostragem](./metodo_com_melhor_correlacao.png)
+
+`Figura 2 - Comparação entre as predições realizadas pelo modelo nnet e os dados de amostragem`
+
+Foi observado que a escolha do modelo mais eficiente, assim como os resultados, podem variar conforme o `set.seed` utilizado. Outro fator observado foi que o resultado pode ser diferente entre máquinas, mesmo utilizando o mesmo valor para a função `set.seed`
