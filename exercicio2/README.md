@@ -49,13 +49,13 @@ E, também o gráfico a seguir:
 
 ![Comparação entre as predições realizadas pelos métodos e pela equação alométrica](./metodos.png)
 
-`Figura 1 - Comparação entre as predições realizadas pelos métodos e pela equação alométrica, em relação à amostragem; Cores: vermelho = rf, verde = alom, azul = svm, purpura = nnet `
+`Figura 1 - Comparação entre as predições realizadas pelos métodos e pela equação alométrica, em relação à amostragem; Cores: preto = amostra, vermelho = rf, verde = alom, azul = svm, purpura = nnet`
 
 
 Neste caso, conclui-se que, a melhor correlação foi obtida por pelo modelo treinado a partir do método de Rede Neural (Neural Network), conforme, visualmente, mostra o gráfico a seguir.
 
 ![Comparação entre as predições realizadas pelo modelo nnet e os dados de amostragem](./metodo_com_melhor_correlacao.png)
 
-`Figura 2 - Comparação entre as predições realizadas pelo modelo nnet e os dados de amostragem`
+`Figura 2 - Comparação entre as predições realizadas pelo modelo nnet e os dados de amostragem; Cores: preto = amostra, vermelho = nnet`
 
 Foi observado que a escolha do modelo mais eficiente, assim como os resultados, podem variar conforme o `set.seed` utilizado. Outro fator observado foi que o resultado pode ser diferente entre máquinas, mesmo utilizando o mesmo valor para a função `set.seed`
