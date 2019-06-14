@@ -40,7 +40,7 @@ Onde dap é o diâmetro na altura do peito (1,3metros), Ht é a altura total. Te
 
 Dado o arquivo Volumes.csv, que contém os dados de observação, escolha um modelo de aprendizado de máquina com a melhor estimativa, a partir da estatística de correlação.
 
-Tarefas
+### Tarefas
 
     1. Carregar o arquivo Volumes.csv
     2. Eliminar a coluna NR, que só apresenta um número sequencial
@@ -51,3 +51,6 @@ Tarefas
     6. Efetue as predições nos dados de teste
     7. Calcule a correlação entre a predição e os dados observados
     8. Escolha o melhor modelo
+
+### Resolução
+(./exercicio2)[./exercicio2/]
