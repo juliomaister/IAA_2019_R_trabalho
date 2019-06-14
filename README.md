@@ -53,4 +53,4 @@ Dado o arquivo Volumes.csv, que contém os dados de observação, escolha um mod
     8. Escolha o melhor modelo
 
 ### Resolução
-(./exercicio2)[./exercicio2/]
+[./exercicio2](./exercicio2/)
