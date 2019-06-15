@@ -95,5 +95,5 @@ Grafico de dados importantes tirados do RF
 
 Tive um pouco de dificuldades para conseguir executar todos os códigos no meu computador devido um bug no linux com o kernlab e descobrir tipos de visualizaçoes de dados para matrizes de confusão
 
-!(./ewok.png)
-E obrigado pela atenção - Desenho por @wolfaasowa]
+![Ewok da sorte](./ewok.png)
+Obrigado pela atenção
