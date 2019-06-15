@@ -3,6 +3,10 @@
 Universidade Federal do Paraná
 Inteligência Artificial Aplicada
 IAA004 - 2019 - Linguagem R
+
+Luan Roger
+Julio Maistrovicz
+Renan Nelsen
 ```
 
 ## 1 Pesquisa com Dados de Satélite (Satellite)

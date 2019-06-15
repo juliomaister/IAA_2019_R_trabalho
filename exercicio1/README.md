@@ -31,17 +31,17 @@ Confusion Matrix and Statistics
 Prediction            red soil cotton crop grey soil damp grey soil
   red soil                1533           0         0              0
   cotton crop                0         703         0              0
-  grey soil                  0           0      1354             36
-  damp grey soil             0           0         4            583
+  grey soil                  0           0      1354             34
+  damp grey soil             0           0         4            586
   vegetation stubble         0           0         0              0
-  very damp grey soil        0           0         0              7
+  very damp grey soil        0           0         0              6
 
 Overall Statistics
                                           
-               Accuracy : 0.991           
-                 95% CI : (0.9884, 0.9931)
+               Accuracy : 0.9915          
+                 95% CI : (0.9889, 0.9936)
     No Information Rate : 0.2382          
-    P-Value [Acc > NIR] : < 2.2e-16  
+    P-Value [Acc NIR] : < 2.2e-16  
 ```
 
 RandomForest:
@@ -51,10 +51,10 @@ Como ja peguei com um valor errado, a acuracia do meu treino ficou baixa
 Overall Statistics
 ```
                                           
-               Accuracy : 0.8244          
-                 95% CI : (0.8149, 0.8336)
-    No Information Rate : 0.2382          
-    P-Value [Acc > NIR] : < 2.2e-16     
+               Accuracy : 0.8489          
+                 95% CI : (0.8281, 0.8681)
+    No Information Rate : 0.2383          
+    P-Value [Acc NIR] : < 2.2e-16     
 ```
 
 Isso me levou a tentar descobrir maneira de subir o nivel de acertibilidade do treino, pesquisando eu descobri que poderia utilizar o mtry que é fornecido pelo rf para fazer um loop de treinos descobrindo uma acuracia maior com o numero maximo de nodos
@@ -62,25 +62,38 @@ Isso me levou a tentar descobrir maneira de subir o nivel de acertibilidade do t
 ```
 Accuracy 
         Min.   1st Qu.    Median      Mean   3rd Qu.      Max. NAs
-5  0.6652565 0.6754617 0.6825479 0.6944459 0.7234043 0.7662547    0
-6  0.7436693 0.7647674 0.7708881 0.7696537 0.7755532 0.7863924    0
-7  0.7524064 0.7767246 0.7807571 0.7811341 0.7869110 0.8055848    0
-8  0.7674919 0.7762201 0.7806925 0.7820712 0.7866805 0.8026667    0
-9  0.7701863 0.7865821 0.7916010 0.7895641 0.7938808 0.8003136    0
-10 0.7828150 0.7923157 0.7960596 0.7970769 0.8031496 0.8129610    0
-11 0.7760085 0.7934272 0.8002109 0.7994534 0.8060797 0.8165962    0
-12 0.7942089 0.8105428 0.8145034 0.8166253 0.8214286 0.8480211    0
-13 0.8036093 0.8157472 0.8268514 0.8244462 0.8317659 0.8381503    0
-14 0.8073248 0.8255069 0.8297985 0.8292505 0.8340448 0.8465637    0
-15 0.8146214 0.8258811 0.8318445 0.8314741 0.8357181 0.8459916    0
+5  0.6612223 0.6709062 0.6781003 0.6808501 0.6816000 0.7694737    0
+6  0.7567855 0.7686722 0.7764141 0.7763608 0.7840849 0.7958005    0
+7  0.7621853 0.7723663 0.7797927 0.7792149 0.7831074 0.8034464    0
+8  0.7637041 0.7738903 0.7784272 0.7792136 0.7852988 0.7899838    0
+9  0.7763088 0.7841802 0.7867725 0.7890357 0.7931398 0.8082627    0
+10 0.7777183 0.7879747 0.7958533 0.7958780 0.8025410 0.8272059    0
+11 0.7847222 0.7953488 0.8007172 0.8017877 0.8075923 0.8203909    0
+12 0.7869919 0.8048907 0.8163158 0.8126673 0.8240209 0.8287526    0
+13 0.8023073 0.8090241 0.8141026 0.8159057 0.8226152 0.8397436    0
+14 0.8027572 0.8137461 0.8183749 0.8190948 0.8280494 0.8339483    0
+15 0.7858672 0.8090531 0.8178964 0.8181030 0.8275316 0.8499733    0
 ```
 ![Matriz de accuracy de maxnodes](./accuracy_maxnodes.png)
 
 Eu tentei utilizar as mesmas tecnicas para outros campos mas nao consegui ter exito.
 
+A validação acabou sendo pior que o teste inicial
+```
+Overall Statistics
+                                         
+               Accuracy : 0.8258         
+                 95% CI : (0.8163, 0.835)
+    No Information Rate : 0.2382         
+    P-Value [Acc NIR] : < 2.2e-16 
+```
+
+Grafico de dados importantes tirados do RF
+![Matriz de accuracy de maxnodes](./var_imp.png)
 
 ## Conclusão
 
 Tive um pouco de dificuldades para conseguir executar todos os códigos no meu computador devido um bug no linux com o kernlab e descobrir tipos de visualizaçoes de dados para matrizes de confusão
 
-![E obrigado pela atenção - Desenho por @wolfaasowa](./ewok.png)
+!(./ewok.png)
+E obrigado pela atenção - Desenho por @wolfaasowa]

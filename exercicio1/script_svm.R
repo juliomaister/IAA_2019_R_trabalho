@@ -33,4 +33,4 @@ final_model <- ksvm(type="C-svc", classes~., data=Satellite, kernel="rbfdot", C=
 final_predict.svm = predict(final_model, Satellite)
 confusionMatrix(final_predict.svm, Satellite$classes)
 #salvando o modelo
-saveRDS(final_model, "Satellite_svm.rds")
+saveRDS(final_model, "Satellite.rds")

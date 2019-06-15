@@ -27,4 +27,12 @@ resultados <- resamples(list(rf=rf, svm=svm, rna=rna))
 summary(resultados)
 
 rf
-
+#Treinar com os dados fornecidos acima
+fit_rf <- randomForest(classes~., data=treino, maxnodes = 15, mtry = 2)
+final_predict.rf = predict(fit_rf, Satellite)
+confusionMatrix(final_predict.rf, Satellite$classes)
+#salvando o modelo
+saveRDS(final_model, "Satellite.rds")
+#imprimindo valores importantes
+varImp(fit_rf)
+varImpPlot(fit_rf)
