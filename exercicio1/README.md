@@ -51,10 +51,10 @@ Como ja peguei com um valor errado, a acuracia do meu treino ficou baixa
 Overall Statistics
 ```
                                           
-               Accuracy : 0.8318          
-                 95% CI : (0.8102, 0.8518)
-    No Information Rate : 0.2383          
-    P-Value [Acc > NIR] : < 2.2e-16    
+               Accuracy : 0.8244          
+                 95% CI : (0.8149, 0.8336)
+    No Information Rate : 0.2382          
+    P-Value [Acc > NIR] : < 2.2e-16     
 ```
 
 Isso me levou a tentar descobrir maneira de subir o nivel de acertibilidade do treino, pesquisando eu descobri que poderia utilizar o mtry que é fornecido pelo rf para fazer um loop de treinos descobrindo uma acuracia maior com o numero maximo de nodos
@@ -74,9 +74,13 @@ Accuracy
 14 0.8073248 0.8255069 0.8297985 0.8292505 0.8340448 0.8465637    0
 15 0.8146214 0.8258811 0.8318445 0.8314741 0.8357181 0.8459916    0
 ```
+![Matriz de accuracy de maxnodes](./accuracy_maxnodes.png)
 
 Eu tentei utilizar as mesmas tecnicas para outros campos mas nao consegui ter exito.
+
 
 ## Conclusão
 
 Tive um pouco de dificuldades para conseguir executar todos os códigos no meu computador devido um bug no linux com o kernlab e descobrir tipos de visualizaçoes de dados para matrizes de confusão
+
+![E obrigado pela atenção - Desenho por @wolfaasowa](./ewok.png)
