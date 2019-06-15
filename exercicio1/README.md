@@ -1,4 +1,4 @@
-# Exercício 2 - Resultados e justificativas
+# Exercício 1 - Resultados e justificativas
 
 Para efeito de comparação, foram treinados modelos dos seguintes métodos:
  * Random Forest (rf)
