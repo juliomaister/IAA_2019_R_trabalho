@@ -29,6 +29,9 @@ Tarefas:
     4. Analise o resultado.
     5. Salve este modelo final 
 
+### Resolução
+[./exercicio1](./exercicio1/)
+
 ## 2 Estimativa de Volumes de Árvores
 
 Modelos de aprendizado de máquina são bastante usados na área da engenharia florestal (mensuração florestal) para, por exemplo, estimar o volume de madeira de árvores sem ser necessário abatê-las.
